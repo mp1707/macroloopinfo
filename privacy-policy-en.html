@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <title>Privacy Policy – MacroLoop</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <main
+    style="
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font: 16px/1.6 system-ui;
+    "
+  >
+    <h1>Privacy Policy</h1>
+    <p><strong>Effective:</strong> 12 November 2025</p>
+
+    <h2>Controller</h2>
+    <p>
+      <b>Marco Preuss – Sole Proprietor</b><br />
+      [Address], [ZIP] [City], Baden-Württemberg, Germany<br />
+      Email:
+      <a href="mailto:support@[your-domain].com">support@[your-domain].com</a>
+    </p>
+
+    <h2>Summary</h2>
+    <ul>
+      <li><b>No user accounts, no analytics, no tracking.</b></li>
+      <li><b>Food logs</b> are stored <b>on device only</b>.</li>
+      <li>
+        <b>Optional photo upload:</b> The image is stored in a
+        <b>private</b> Supabase bucket; an Edge Function creates a
+        <b>short-lived signed URL</b> and sends it to OpenAI for nutrition
+        analysis. A scheduled job <b>deletes the image within ~1 hour</b>.
+      </li>
+    </ul>
+
+    <h2>Data we process</h2>
+    <ol>
+      <li>
+        <b>On device:</b> your food logs (text, amounts, nutrition). Not
+        transmitted.
+      </li>
+      <li>
+        <b>Optional photo (User Content):</b> Temporarily stored in Supabase (EU
+        region) to enable analysis. Please avoid uploading images of people or
+        personal data.
+      </li>
+      <li>
+        <b>Support website:</b> Our static pages (GitHub Pages) may log
+        visitors’ <i>IP addresses</i> for security (see GitHub Privacy
+        Statement).
+      </li>
+    </ol>
+
+    <h2>Purposes & legal bases</h2>
+    <ul>
+      <li>
+        <b>App functionality (image analysis):</b> performance of contract (Art.
+        6(1)(b) GDPR).
+      </li>
+      <li>
+        <b>Security/operations:</b> legitimate interests (Art. 6(1)(f) GDPR).
+      </li>
+    </ul>
+
+    <h2>Processors</h2>
+    <ul>
+      <li>
+        <b>Supabase, Inc.</b> (private storage bucket, signed URLs; EU region).
+      </li>
+      <li>
+        <b>OpenAI</b> (image analysis API).
+        <i>No training on API data by default</i>; inputs/outputs may be
+        retained for up to <b>30 days</b> for abuse monitoring.
+      </li>
+    </ul>
+
+    <h2>International transfers</h2>
+    <p>
+      OpenAI processing may involve transfers to the United States. Such
+      transfers rely on OpenAI’s Data Processing Addendum and appropriate
+      safeguards (e.g., EU Standard Contractual Clauses).
+    </p>
+
+    <h2>Retention</h2>
+    <ul>
+      <li>
+        <b>Images on Supabase:</b> scheduled deletion, typically
+        <b>&lt; 1 hour</b> after upload.
+      </li>
+      <li>
+        <b>Food logs:</b> remain on your device until you delete them or remove
+        the app.
+      </li>
+    </ul>
+
+    <h2>No tracking/ads</h2>
+    <p>No ad SDKs, profiling, or cross-app tracking (ATT).</p>
+
+    <h2>Your rights</h2>
+    <p>
+      You can exercise your GDPR rights (access, rectification, deletion,
+      restriction, portability, objection) by contacting us at the email above.
+      You may lodge a complaint with a supervisory authority.
+    </p>
+
+    <h2>Changes</h2>
+    <p>
+      We may update this notice as technology, law, or our service changes. The
+      current version is published here.
+    </p>
+  </main>
+</html>
