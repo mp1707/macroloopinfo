@@ -1,149 +1,396 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <meta charset="utf-8" />
-  <title>Datenschutzerklärung – MacroLoop</title>
+  <title>Privacy Policy / Datenschutzerklärung – MacroLoop</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <main
-    style="
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
       max-width: 720px;
       margin: 40px auto;
       padding: 0 20px;
       font: 16px/1.6 system-ui;
-    "
-  >
-    <h1>Datenschutzerklärung</h1>
-    <p><strong>Stand:</strong> 12. November 2025</p>
+    }
 
-    <h2>Verantwortlicher</h2>
-    <p>
-      <b>Marco Preuss – Einzelunternehmen</b><br />
-      Augustenburgstraße 8d, 76229 Karlsruhe, Baden-Württemberg, Deutschland<br />
-      E-Mail:
-      <a href="mailto:mpapps@web.de">mpapps@web.de</a>
-    </p>
+    .language-toggle {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #e5e5e5;
+    }
 
-    <h2>Kurzfassung</h2>
-    <ul>
-      <li><b>Kein Nutzerkonto, keine Analytics, kein Tracking.</b></li>
-      <li>
-        <b>Food-Logs</b> werden
-        <b>ausschließlich auf deinem Gerät</b> gespeichert.
-      </li>
-      <li>
-        <b>Optionale Bild-Uploads:</b> Das Foto wird in einem
-        <b>privaten</b> Supabase-Bucket gespeichert; eine Edge Function erzeugt
-        eine <b>zeitlich begrenzte Signed-URL</b> und sendet diese an OpenAI zur
-        Bildanalyse (Nährwertschätzung). Das Bild wird per Routinejob
-        <b>spätestens nach ca. 1 Stunde</b> gelöscht.
-      </li>
-    </ul>
+    .language-toggle button {
+      padding: 8px 16px;
+      border: 2px solid #e5e5e5;
+      background: white;
+      cursor: pointer;
+      border-radius: 4px;
+      font: 14px system-ui;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
 
-    <h2>Welche Daten verarbeiten wir?</h2>
-    <ol>
-      <li>
-        <b>Auf dem Gerät (on-device):</b> deine Food-Logs (Texte, Mengen,
-        Nährwerte). Diese Daten verlassen dein Gerät nicht.
-      </li>
-      <li>
-        <b>Optionaler Bild-Upload (User Content):</b> Wenn du ein Foto
-        mitsendest, wird es kurzfristig in Supabase (EU-Region) gespeichert, um
-        die Analyse zu ermöglichen. <br /><i
-          >Bitte lade keine Bilder hoch, die Personen enthalten oder anderweitig
-          persönliche Daten preisgeben.</i
-        >
-      </li>
-      <li>
-        <b>Support-Website:</b> Beim Aufruf unserer statischen Webseiten (GitHub
-        Pages) kann der Hoster aus Sicherheitsgründen u. a.
-        <i>IP-Adressen</i> protokollieren (siehe GitHub Privacy Statement).
-      </li>
-    </ol>
+    .language-toggle button.active {
+      background: #333;
+      color: white;
+      border-color: #333;
+    }
 
-    <h2>Zwecke und Rechtsgrundlagen</h2>
-    <ul>
-      <li>
-        <b>App-Funktion (Nährwertanalyse des Fotos):</b> Verarbeitung ist zur
-        Vertragserfüllung erforderlich, Art. 6 Abs.1 lit. b DSGVO.
-      </li>
-      <li>
-        <b
-          >IT-Sicherheit/Betrieb (kurzfristige Zwischenspeicherung,
-          Missbrauchsabwehr):</b
-        >
-        berechtigtes Interesse, Art. 6 Abs.1 lit. f DSGVO.
-      </li>
-    </ul>
+    .language-toggle button:hover:not(.active) {
+      border-color: #333;
+    }
 
-    <h2>Empfänger / Auftragsverarbeiter</h2>
-    <ul>
-      <li>
-        <b>Supabase, Inc.</b> (Speicherung des Fotos im <b>privaten Bucket</b>,
-        Signed-URLs, EU-Region z. B. Frankfurt). DPA verfügbar.
-      </li>
-      <li>
-        <b>OpenAI</b> (API für Bildanalyse).
-        <i>OpenAI nutzt API-Daten standardmäßig nicht zum Training</i>; zur
-        Missbrauchsbekämpfung können Eingaben/Ausgaben bis zu
-        <b>30 Tage</b> aufbewahrt werden.
-      </li>
-    </ul>
+    .language-content {
+      display: none;
+    }
 
-    <h2>Übermittlung in Drittländer</h2>
-    <p>
-      Für die Analyse kann eine Übermittlung an OpenAI in die USA stattfinden.
-      Diese erfolgt auf Basis der von OpenAI bereitgestellten
-      Datenschutz-Zusatzvereinbarung (inkl. geeigneter Garantien, z. B.
-      EU-Standardvertragsklauseln).
-    </p>
+    .language-content.active {
+      display: block;
+    }
 
-    <h2>Speicherdauer</h2>
-    <ul>
-      <li>
-        <b>Bilder bei Supabase:</b> geplanter automatischer Löschjob, i. d. R.
-        <b>&lt; 1 Stunde</b> nach Upload.
-      </li>
-      <li>
-        <b>Food-Logs:</b> verbleiben ausschließlich auf deinem Gerät, bis du sie
-        löscht oder die App entfernst.
-      </li>
-    </ul>
+    h1,
+    h2 {
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
 
-    <h2>Kein Tracking / keine Werbung</h2>
-    <p>
-      Wir verwenden keine Werbe-SDKs, kein Profiling, kein Cross-App-Tracking
-      (ATT).
-    </p>
+    h1 {
+      margin-top: 0;
+    }
 
-    <h2>Rechte der betroffenen Personen</h2>
-    <p>
-      Du hast nach DSGVO insbesondere Rechte auf Auskunft, Berichtigung,
-      Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch. Du kannst
-      dich zudem bei einer Aufsichtsbehörde beschweren, z. B. beim
-      <a href="https://www.baden-wuerttemberg.datenschutz.de/"
-        >LfDI Baden-Württemberg</a
-      >.
-    </p>
+    h2 {
+      font-size: 1.1em;
+    }
 
-    <h2>Kontakt</h2>
-    <p>
-      Bei Fragen oder zur Ausübung deiner Rechte:
-      <a href="mailto:mpapps@web.de">mpapps@web.de</a>
-    </p>
+    ul,
+    ol {
+      margin: 0.5em 0;
+      padding-left: 1.5em;
+    }
 
-    <h2>Änderungen</h2>
-    <p>
-      Wir passen diese Erklärung an, wenn sich Technik, Rechtslage oder unser
-      Dienst ändern. Die jeweils aktuelle Fassung ist hier veröffentlicht.
-    </p>
+    li {
+      margin: 0.3em 0;
+    }
 
-    <hr />
-    <p style="font-size: 14px; opacity: 0.8">
-      Transparenzhinweise zu Dienstleistern: <br />
-      Supabase – Signed URLs & Private Buckets (Dokumentation), Cron/Scheduler
-      für Löschjobs. <br />
-      OpenAI – API ohne Trainingsnutzung by default, bis zu 30 Tage
-      Abuse-Monitoring. <br />
-      GitHub Pages – Protokollierung von IP-Adressen aus Sicherheitsgründen.
-    </p>
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    hr {
+      margin: 2em 0;
+      border: none;
+      border-top: 1px solid #e5e5e5;
+    }
+  </style>
+
+  <main>
+    <div class="language-toggle">
+      <button class="active" data-lang="en">English</button>
+      <button data-lang="de">Deutsch</button>
+    </div>
+
+    <!-- English Version -->
+    <div id="en-content" class="language-content active">
+      <h1>Privacy Policy</h1>
+      <p><strong>Effective:</strong> 12 November 2025</p>
+
+      <h2>Controller</h2>
+      <p>
+        <b>Marco Preuss – Sole Proprietor</b><br />
+        Augustenburgstraße 8d, 76229 Karlsruhe, Baden-Württemberg, Germany<br />
+        Email:
+        <a href="mailto:mpapps@web.de">mpapps@web.de</a>
+      </p>
+
+      <h2>Summary</h2>
+      <ul>
+        <li><b>No user accounts, no analytics, no tracking.</b></li>
+        <li><b>Food logs</b> are stored <b>on device only</b>.</li>
+        <li>
+          <b>Optional photo upload:</b> The image is stored in a
+          <b>private</b> Supabase bucket; an Edge Function creates a
+          <b>short-lived signed URL</b> and sends it to OpenAI for nutrition
+          analysis. A scheduled job <b>deletes the image within ~1 hour</b>.
+        </li>
+      </ul>
+
+      <h2>Data we process</h2>
+      <ol>
+        <li>
+          <b>On device:</b> your food logs (text, amounts, nutrition). Not
+          transmitted.
+        </li>
+        <li>
+          <b>Optional photo (User Content):</b> Temporarily stored in Supabase
+          (EU region) to enable analysis. Please avoid uploading images of
+          people or personal data.
+        </li>
+        <li>
+          <b>Support website:</b> Our static pages (GitHub Pages) may log
+          visitors' <i>IP addresses</i> for security (see GitHub Privacy
+          Statement).
+        </li>
+      </ol>
+
+      <h2>Purposes & legal bases</h2>
+      <ul>
+        <li>
+          <b>App functionality (image analysis):</b> performance of contract
+          (Art. 6(1)(b) GDPR).
+        </li>
+        <li>
+          <b>Security/operations:</b> legitimate interests (Art. 6(1)(f) GDPR).
+        </li>
+      </ul>
+
+      <h2>Processors</h2>
+      <ul>
+        <li>
+          <b>Supabase, Inc.</b> (private storage bucket, signed URLs; EU
+          region).
+        </li>
+        <li>
+          <b>OpenAI</b> (image analysis API).
+          <i>No training on API data by default</i>; inputs/outputs may be
+          retained for up to <b>30 days</b> for abuse monitoring.
+        </li>
+      </ul>
+
+      <h2>International transfers</h2>
+      <p>
+        OpenAI processing may involve transfers to the United States. Such
+        transfers rely on OpenAI's Data Processing Addendum and appropriate
+        safeguards (e.g., EU Standard Contractual Clauses).
+      </p>
+
+      <h2>Retention</h2>
+      <ul>
+        <li>
+          <b>Images on Supabase:</b> scheduled deletion, typically
+          <b>&lt; 1 hour</b> after upload.
+        </li>
+        <li>
+          <b>Food logs:</b> remain on your device until you delete them or
+          remove the app.
+        </li>
+      </ul>
+
+      <h2>No tracking/ads</h2>
+      <p>No ad SDKs, profiling, or cross-app tracking (ATT).</p>
+
+      <h2>Your rights</h2>
+      <p>
+        You can exercise your GDPR rights (access, rectification, deletion,
+        restriction, portability, objection) by contacting us at the email
+        above. You may lodge a complaint with a supervisory authority.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        We may update this notice as technology, law, or our service changes.
+        The current version is published here.
+      </p>
+
+      <hr />
+      <p style="font-size: 14px; opacity: 0.8">
+        Transparency notes on service providers: <br />
+        Supabase – Signed URLs & Private Buckets (documentation), Cron/Scheduler
+        for deletion jobs. <br />
+        OpenAI – API without training use by default, up to 30 days abuse
+        monitoring. <br />
+        GitHub Pages – IP address logging for security purposes.
+      </p>
+    </div>
+
+    <!-- German Version -->
+    <div id="de-content" class="language-content">
+      <h1>Datenschutzerklärung</h1>
+      <p><strong>Stand:</strong> 12. November 2025</p>
+
+      <h2>Verantwortlicher</h2>
+      <p>
+        <b>Marco Preuss – Einzelunternehmen</b><br />
+        Augustenburgstraße 8d, 76229 Karlsruhe, Baden-Württemberg,
+        Deutschland<br />
+        E-Mail:
+        <a href="mailto:mpapps@web.de">mpapps@web.de</a>
+      </p>
+
+      <h2>Kurzfassung</h2>
+      <ul>
+        <li><b>Kein Nutzerkonto, keine Analytics, kein Tracking.</b></li>
+        <li>
+          <b>Food-Logs</b> werden
+          <b>ausschließlich auf deinem Gerät</b> gespeichert.
+        </li>
+        <li>
+          <b>Optionale Bild-Uploads:</b> Das Foto wird in einem
+          <b>privaten</b> Supabase-Bucket gespeichert; eine Edge Function
+          erzeugt eine <b>zeitlich begrenzte Signed-URL</b> und sendet diese an
+          OpenAI zur Bildanalyse (Nährwertschätzung). Das Bild wird per
+          Routinejob <b>spätestens nach ca. 1 Stunde</b> gelöscht.
+        </li>
+      </ul>
+
+      <h2>Welche Daten verarbeiten wir?</h2>
+      <ol>
+        <li>
+          <b>Auf dem Gerät (on-device):</b> deine Food-Logs (Texte, Mengen,
+          Nährwerte). Diese Daten verlassen dein Gerät nicht.
+        </li>
+        <li>
+          <b>Optionaler Bild-Upload (User Content):</b> Wenn du ein Foto
+          mitsendest, wird es kurzfristig in Supabase (EU-Region) gespeichert,
+          um die Analyse zu ermöglichen. <br /><i
+            >Bitte lade keine Bilder hoch, die Personen enthalten oder
+            anderweitig persönliche Daten preisgeben.</i
+          >
+        </li>
+        <li>
+          <b>Support-Website:</b> Beim Aufruf unserer statischen Webseiten
+          (GitHub Pages) kann der Hoster aus Sicherheitsgründen u. a.
+          <i>IP-Adressen</i> protokollieren (siehe GitHub Privacy Statement).
+        </li>
+      </ol>
+
+      <h2>Zwecke und Rechtsgrundlagen</h2>
+      <ul>
+        <li>
+          <b>App-Funktion (Nährwertanalyse des Fotos):</b> Verarbeitung ist zur
+          Vertragserfüllung erforderlich, Art. 6 Abs.1 lit. b DSGVO.
+        </li>
+        <li>
+          <b
+            >IT-Sicherheit/Betrieb (kurzfristige Zwischenspeicherung,
+            Missbrauchsabwehr):</b
+          >
+          berechtigtes Interesse, Art. 6 Abs.1 lit. f DSGVO.
+        </li>
+      </ul>
+
+      <h2>Empfänger / Auftragsverarbeiter</h2>
+      <ul>
+        <li>
+          <b>Supabase, Inc.</b> (Speicherung des Fotos im
+          <b>privaten Bucket</b>, Signed-URLs, EU-Region z. B. Frankfurt). DPA
+          verfügbar.
+        </li>
+        <li>
+          <b>OpenAI</b> (API für Bildanalyse).
+          <i>OpenAI nutzt API-Daten standardmäßig nicht zum Training</i>; zur
+          Missbrauchsbekämpfung können Eingaben/Ausgaben bis zu
+          <b>30 Tage</b> aufbewahrt werden.
+        </li>
+      </ul>
+
+      <h2>Übermittlung in Drittländer</h2>
+      <p>
+        Für die Analyse kann eine Übermittlung an OpenAI in die USA stattfinden.
+        Diese erfolgt auf Basis der von OpenAI bereitgestellten
+        Datenschutz-Zusatzvereinbarung (inkl. geeigneter Garantien, z. B.
+        EU-Standardvertragsklauseln).
+      </p>
+
+      <h2>Speicherdauer</h2>
+      <ul>
+        <li>
+          <b>Bilder bei Supabase:</b> geplanter automatischer Löschjob, i. d. R.
+          <b>&lt; 1 Stunde</b> nach Upload.
+        </li>
+        <li>
+          <b>Food-Logs:</b> verbleiben ausschließlich auf deinem Gerät, bis du
+          sie löschst oder die App entfernst.
+        </li>
+      </ul>
+
+      <h2>Kein Tracking / keine Werbung</h2>
+      <p>
+        Wir verwenden keine Werbe-SDKs, kein Profiling, kein Cross-App-Tracking
+        (ATT).
+      </p>
+
+      <h2>Rechte der betroffenen Personen</h2>
+      <p>
+        Du hast nach DSGVO insbesondere Rechte auf Auskunft, Berichtigung,
+        Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch. Du kannst
+        dich zudem bei einer Aufsichtsbehörde beschweren, z. B. beim
+        <a href="https://www.baden-wuerttemberg.datenschutz.de/"
+          >LfDI Baden-Württemberg</a
+        >.
+      </p>
+
+      <h2>Kontakt</h2>
+      <p>
+        Bei Fragen oder zur Ausübung deiner Rechte:
+        <a href="mailto:mpapps@web.de">mpapps@web.de</a>
+      </p>
+
+      <h2>Änderungen</h2>
+      <p>
+        Wir passen diese Erklärung an, wenn sich Technik, Rechtslage oder unser
+        Dienst ändern. Die jeweils aktuelle Fassung ist hier veröffentlicht.
+      </p>
+
+      <hr />
+      <p style="font-size: 14px; opacity: 0.8">
+        Transparenzhinweise zu Dienstleistern: <br />
+        Supabase – Signed URLs & Private Buckets (Dokumentation), Cron/Scheduler
+        für Löschjobs. <br />
+        OpenAI – API ohne Trainingsnutzung by default, bis zu 30 Tage
+        Abuse-Monitoring. <br />
+        GitHub Pages – Protokollierung von IP-Adressen aus Sicherheitsgründen.
+      </p>
+    </div>
   </main>
+
+  <script>
+    // Language toggle functionality
+    const languageButtons = document.querySelectorAll(
+      ".language-toggle button"
+    );
+
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const selectedLang = this.getAttribute("data-lang");
+
+        // Update active button
+        languageButtons.forEach((btn) => btn.classList.remove("active"));
+        this.classList.add("active");
+
+        // Update active content
+        document.querySelectorAll(".language-content").forEach((content) => {
+          content.classList.remove("active");
+        });
+        document
+          .getElementById(selectedLang + "-content")
+          .classList.add("active");
+
+        // Update page language attribute
+        document.documentElement.lang = selectedLang;
+
+        // Save preference to localStorage
+        localStorage.setItem("preferredLanguage", selectedLang);
+      });
+    });
+
+    // Restore user's language preference
+    const savedLanguage = localStorage.getItem("preferredLanguage") || "en";
+    if (savedLanguage !== "en") {
+      document.querySelector(`[data-lang="${savedLanguage}"]`).click();
+    }
+  </script>
 </html>

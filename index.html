@@ -1,154 +1,249 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>MacroLoop – Support & Rechtliches</title>
+    <title>MacroLoop – Support & Legal</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta
       name="description"
-      content="Support, Datenschutz und rechtliche Informationen zur iOS-App MacroLoop."
+      content="Support, privacy policy and legal information for MacroLoop iOS app."
     />
     <style>
-      :root {
-        --bg: #0b0c0f;
-        --card: #11141a;
-        --text: #e7e9ee;
-        --muted: #a6adbb;
-        --accent: #4dd3a8;
+      * {
+        box-sizing: border-box;
       }
-      html,
-      body {
+
+      html, body {
         margin: 0;
-        background: var(--bg);
-        color: var(--text);
-        font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
-          Arial, sans-serif;
+        padding: 0;
       }
-      .wrap {
-        max-width: 760px;
-        margin: 48px auto;
+
+      body {
+        background: #f9f9f9;
+        color: #333;
+        font: 16px/1.6 system-ui;
+      }
+
+      main {
+        max-width: 720px;
+        margin: 40px auto;
         padding: 0 20px;
       }
-      .card {
-        background: var(--card);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 16px;
-        padding: 24px;
+
+      .language-toggle {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #e5e5e5;
       }
+
+      .language-toggle button {
+        padding: 8px 16px;
+        border: 2px solid #e5e5e5;
+        background: white;
+        cursor: pointer;
+        border-radius: 4px;
+        font: 14px system-ui;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+
+      .language-toggle button.active {
+        background: #333;
+        color: white;
+        border-color: #333;
+      }
+
+      .language-toggle button:hover:not(.active) {
+        border-color: #333;
+      }
+
+      .language-content {
+        display: none;
+      }
+
+      .language-content.active {
+        display: block;
+      }
+
       h1 {
-        font-size: 28px;
-        margin: 0 0 8px;
+        margin-top: 0;
+        margin-bottom: 0.5em;
       }
-      p.lead {
-        color: var(--muted);
-        margin: 0 0 20px;
+
+      h2 {
+        font-size: 1.1em;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
       }
+
+      p {
+        margin: 0.5em 0;
+      }
+
+      ul, ol {
+        margin: 0.5em 0;
+        padding-left: 1.5em;
+      }
+
+      li {
+        margin: 0.3em 0;
+      }
+
+      a {
+        color: #0066cc;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      hr {
+        margin: 2em 0;
+        border: none;
+        border-top: 1px solid #e5e5e5;
+      }
+
       .links {
         display: grid;
         gap: 12px;
-        margin: 20px 0 8px;
+        margin: 1em 0;
       }
+
       .links a {
         display: block;
+        padding: 12px 16px;
+        background: #f0f0f0;
+        border: 1px solid #ddd;
+        border-radius: 6px;
         text-decoration: none;
-        background: #161a22;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 14px 16px;
-        border-radius: 12px;
-        color: var(--text);
+        color: #333;
+        transition: all 0.2s ease;
       }
+
       .links a:hover {
-        border-color: var(--accent);
-      }
-      .badge {
-        display: inline-block;
-        padding: 2px 8px;
-        border-radius: 999px;
-        background: rgba(77, 211, 168, 0.12);
-        color: var(--accent);
-        font-size: 12px;
-        margin-left: 8px;
-      }
-      small {
-        color: var(--muted);
-      }
-      hr {
-        border: 0;
-        height: 1px;
-        background: rgba(255, 255, 255, 0.08);
-        margin: 20px 0;
+        background: #e8e8e8;
+        border-color: #999;
       }
     </style>
   </head>
   <body>
-    <main class="wrap">
-      <div class="card">
-        <h1>MacroLoop <span class="badge">iOS</span></h1>
-        <p class="lead">
-          AI-first Food Logging – ohne Konto, keine Analytics, kein Tracking.
+    <main>
+      <div class="language-toggle">
+        <button class="active" data-lang="en">English</button>
+        <button data-lang="de">Deutsch</button>
+      </div>
+
+      <!-- English Version -->
+      <div id="en-content" class="language-content active">
+        <h1>MacroLoop</h1>
+        <p>
+          AI-first Food Logging – no account, no analytics, no tracking.
         </p>
 
         <div class="links">
-          <a href="./support.html">Support / Kontakt</a>
-          <a href="./privacy-policy.html">Datenschutzerklärung (DE/EN)</a>
-          <a href="./impressum.html">Impressum (Deutschland)</a>
-          <!-- Optional: <a href="./terms.html">Terms of Service</a> -->
+          <a href="./support.html">Support & Contact</a>
+          <a href="./privacy-policy.html">Privacy Policy</a>
+          <a href="./impressum.html">Legal Notice</a>
         </div>
 
         <hr />
 
-        <section>
-          <h2 style="margin: 0 0 8px; font-size: 18px">Kurzinfo Datenschutz</h2>
-          <ul style="margin: 0 0 8px 18px">
-            <li>
-              Food-Logs werden ausschließlich <b>on device</b> gespeichert.
-            </li>
-            <li>
-              Optionales Foto: kurzzeitig im <b>privaten Supabase-Bucket</b>;
-              kurze <b>Signed-URL</b> zur Analyse; automatisches Löschen ~<b
-                >1 h</b
-              >.
-            </li>
-            <li>Keine Ads, kein Cross-App-Tracking, keine Analytics.</li>
-          </ul>
-          <small
-            >Details in der
-            <a href="./privacy-policy.html">Datenschutzerklärung</a>.</small
-          >
-        </section>
+        <h2>Privacy at a Glance</h2>
+        <ul>
+          <li>Food logs are stored <b>on device only</b>.</li>
+          <li>
+            Optional photo: briefly in a <b>private Supabase bucket</b>;
+            short-lived <b>signed URL</b> for analysis; auto-deletion ~<b>1 h</b>.
+          </li>
+          <li>No ads, no cross-app tracking, no analytics.</li>
+        </ul>
+        <p>
+          <small>See full <a href="./privacy-policy.html">Privacy Policy</a>.</small>
+        </p>
 
         <hr />
 
-        <section lang="en">
-          <h2 style="margin: 0 0 8px; font-size: 18px">At a glance (EN)</h2>
-          <ul style="margin: 0 0 8px 18px">
-            <li>Food logs are stored <b>on device only</b>.</li>
-            <li>
-              Optional photo: briefly in a <b>private Supabase bucket</b>;
-              short-lived <b>signed URL</b> for analysis; auto-deletion ~<b
-                >1 h</b
-              >.
-            </li>
-            <li>No ads, no cross-app tracking, no analytics.</li>
-          </ul>
-          <small
-            >See full <a href="./privacy-policy.html">Privacy Policy</a>.</small
-          >
-        </section>
+        <h2>Contact</h2>
+        <p>
+          Email: <a href="mailto:mpapps@web.de">mpapps@web.de</a><br />
+          Provider: Marco Preuss – Sole Proprietor, Augustenburgstraße 8d, 76229
+          Karlsruhe, Baden-Württemberg, Germany
+        </p>
+      </div>
+
+      <!-- German Version -->
+      <div id="de-content" class="language-content">
+        <h1>MacroLoop</h1>
+        <p>
+          AI-first Food Logging – ohne Konto, keine Analytics, kein Tracking.
+        </p>
+
+        <div class="links">
+          <a href="./support.html">Support & Kontakt</a>
+          <a href="./privacy-policy.html">Datenschutzerklärung</a>
+          <a href="./impressum.html">Impressum</a>
+        </div>
 
         <hr />
 
-        <section>
-          <p style="margin: 0">
-            Kontakt:
-            <a href="mailto:mpapps@web.de"
-              >mpapps@web.de</a
-            ><br />
-            Anbieter: Marco Preuss – Einzelunternehmen, Augustenburgstraße 8d, 76229
-            Karlsruhe, Baden-Württemberg, Deutschland
-          </p>
-        </section>
+        <h2>Kurzinfo Datenschutz</h2>
+        <ul>
+          <li>Food-Logs werden ausschließlich <b>on device</b> gespeichert.</li>
+          <li>
+            Optionales Foto: kurzzeitig im <b>privaten Supabase-Bucket</b>;
+            kurze <b>Signed-URL</b> zur Analyse; automatisches Löschen ~<b>1 h</b>.
+          </li>
+          <li>Keine Ads, kein Cross-App-Tracking, keine Analytics.</li>
+        </ul>
+        <p>
+          <small>Details in der <a href="./privacy-policy.html">Datenschutzerklärung</a>.</small>
+        </p>
+
+        <hr />
+
+        <h2>Kontakt</h2>
+        <p>
+          E-Mail: <a href="mailto:mpapps@web.de">mpapps@web.de</a><br />
+          Anbieter: Marco Preuss – Einzelunternehmen, Augustenburgstraße 8d, 76229
+          Karlsruhe, Baden-Württemberg, Deutschland
+        </p>
       </div>
     </main>
+
+    <script>
+      // Language toggle functionality
+      const languageButtons = document.querySelectorAll('.language-toggle button');
+
+      languageButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const selectedLang = this.getAttribute('data-lang');
+
+          // Update active button
+          languageButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+
+          // Update active content
+          document.querySelectorAll('.language-content').forEach(content => {
+            content.classList.remove('active');
+          });
+          document.getElementById(selectedLang + '-content').classList.add('active');
+
+          // Update page language attribute
+          document.documentElement.lang = selectedLang;
+
+          // Save preference to localStorage
+          localStorage.setItem('preferredLanguage', selectedLang);
+        });
+      });
+
+      // Restore user's language preference
+      const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+      if (savedLanguage !== 'en') {
+        document.querySelector(`[data-lang="${savedLanguage}"]`).click();
+      }
+    </script>
   </body>
 </html>
